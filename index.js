@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/product', (req, res) => {
-  res.render('coming_soon', { title: 'Product' });
+  res.render('product', { title: 'Product' });
 });
 
 app.get('/about', (req, res) => {
