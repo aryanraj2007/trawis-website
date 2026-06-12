@@ -141,3 +141,10 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# Admin Setup credentials file
+admin-setup.json
+
+# Ignore user uploaded cover images but keep the gitkeep
+/public/uploads/*
+!/public/uploads/.gitkeep

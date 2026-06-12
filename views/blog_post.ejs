@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/head') %>
+
+  <!-- Marked Markdown Parser for legacy markdown fallback -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+  <%- include('partials/header') %>
+
+  <main>
+<!-- POST HERO -->
+<section class="section section-dark post-hero post-hero-split">
+  <div class="hero-bg-glow"></div>
+
+  <div class="container">
+    <div class="row align-items-center gy-5">
+      <div class="col-lg-6">
+        <a href="/resources/blog" class="post-back-link animate-up">
+          <span>←</span> Back to Intelligence Hub
+        </a>
+
+        <h1 class="hero-title post-hero-title animate-up delay-2">
+          <%= post.title %>
+        </h1>
+
+        <div class="post-meta-row animate-up delay-3">
+          <span>
+            <i class="bi bi-calendar3"></i>
+            <%= new Date(post.published_at || post.created_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) %>
+          </span>
+
+          <span>
+            <i class="bi bi-person-fill"></i>
+            By <%= post.author_name || 'TraWis Team' %>
+          </span>
+
+          <span>
+            <i class="bi bi-clock"></i>
+            <% 
+              const words = post.content ? post.content.split(/\s+/).length : 0;
+              const readTime = Math.max(1, Math.ceil(words / 200));
+            %>
+            <%= readTime %> min read
+          </span>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <% if (post.cover_image) { %>
+          <div class="post-hero-image-wrap post-hero-image-side animate-up delay-3">
+            <img
+              src="<%= post.cover_image %>"
+              alt="<%= post.title %>"
+              class="post-hero-image"
+              loading="lazy"
+            >
+          </div>
+        <% } else { %>
+          <div class="post-hero-image-wrap post-hero-image-side animate-up delay-3">
+            <img
+              src="https://placehold.co/720x520/2b2331/ffc400?text=TraWis+Insight"
+              alt="TraWis Insight"
+              class="post-hero-image"
+              loading="lazy"
+            >
+          </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <!-- BODY CONTENT -->
+    <section class="section post-content-section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-9">
+            <div class="post-body-card">
+              <!-- Hidden Content Source -->
+              <div id="raw-markdown-content" style="display: none;"><%- post.content %></div>
+
+              <article id="rendered-content" class="post-rendered-body"></article>
+            </div>
+
+            <div class="post-bottom-actions">
+              <a href="/resources/blog" class="btn btn-outline-dark">
+                ← Back to Insights
+              </a>
+
+              <a href="/demo" class="btn btn-brand">
+                Schedule Demo
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- CTA -->
+    <section class="section demo-cta">
+      <div class="container">
+        <div class="cta-card">
+          <div>
+            <div class="section-kicker">Want to explore TraWis?</div>
+
+            <h2>See how trade intelligence can work across your desk.</h2>
+
+            <p>
+              Schedule a demo to explore predictive pricing, role-based recommendations,
+              risk visibility, and enterprise-ready workflows.
+            </p>
+          </div>
+
+          <a href="/demo" class="btn btn-brand btn-lg">
+            Schedule Demo
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <%- include('partials/footer') %>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const sourceEl = document.getElementById('raw-markdown-content');
+      const renderedContentEl = document.getElementById('rendered-content');
+      if (!sourceEl || !renderedContentEl) return;
+
+      const rawSource = sourceEl.textContent || '';
+      const isHtml = /<[^>]+>/.test(rawSource);
+
+      if (isHtml) {
+        renderedContentEl.innerHTML = rawSource;
+        return;
+      }
+
+      marked.use({
+        gfm: true,
+        breaks: true
+      });
+      renderedContentEl.innerHTML = marked.parse(rawSource);
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

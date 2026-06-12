@@ -1,0 +1,45 @@
+<aside class="admin-sidebar">
+  <div class="sidebar-brand">
+    <a href="/">
+      <img src="/assets/trawis-logo.png" alt="TraWis Logo" class="sidebar-logo">
+    </a>
+  </div>
+
+  <div class="menu-header">Modules</div>
+  <ul class="sidebar-menu">
+    <li class="menu-item">
+      <a href="/admin/dashboard" class="menu-link <%= activeSection === 'dashboard' ? 'active' : '' %>">
+        <i class="bi bi-journal-text"></i> Blog Posts
+      </a>
+    </li>
+
+    <li class="menu-item">
+      <a href="/admin/posts/new" class="menu-link <%= activeSection === 'posts' ? 'active' : '' %>">
+        <i class="bi bi-plus-circle"></i> New Post
+      </a>
+    </li>
+
+    <% if (currentUser.role === 'superadmin') { %>
+      <li class="menu-item">
+        <a href="/admin/users" class="menu-link <%= activeSection === 'users' ? 'active' : '' %>">
+          <i class="bi bi-people"></i> User Permissions
+        </a>
+      </li>
+    <% } %>
+  </ul>
+
+  <div class="sidebar-footer">
+    <div class="d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center gap-2">
+        <div class="user-pill-avatar"><%= currentUser.username.charAt(0).toUpperCase() %></div>
+        <div>
+          <div class="sidebar-user-name"><%= currentUser.username %></div>
+          <div class="role-text-sidebar"><%= currentUser.role === 'superadmin' ? 'Superadmin' : 'Editor' %></div>
+        </div>
+      </div>
+      <a href="/admin/logout" class="btn btn-sm btn-outline-danger border-0 sidebar-logout-btn" title="Log Out">
+        <i class="bi bi-box-arrow-right sidebar-logout-icon"></i>
+      </a>
+    </div>
+  </div>
+</aside>

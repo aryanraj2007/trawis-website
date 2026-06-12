@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head') %>
+  <style>
+    body {
+      background: var(--gradient-hero);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .bg-glow {
+      position: absolute;
+      width: 40rem;
+      height: 40rem;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 196, 0, 0.15), transparent 60%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .bg-glow-1 {
+      top: -10rem;
+      left: -10rem;
+    }
+    .bg-glow-2 {
+      bottom: -10rem;
+      right: -10rem;
+    }
+    
+    .login-container {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 420px;
+      padding: 15px;
+    }
+    
+    .login-card {
+      background: rgba(43, 35, 49, 0.65);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-lg);
+      padding: 3rem 2.2rem;
+      box-shadow: var(--shadow-dark);
+      text-align: center;
+    }
+    
+    .brand-logo-login {
+      width: 140px;
+      height: auto;
+      margin-bottom: 2rem;
+    }
+    
+    .form-control-dark {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      color: var(--color-white) !important;
+      padding: 0.8rem 1rem;
+      font-size: 0.95rem;
+      transition: all 0.25s ease;
+    }
+    
+    .form-control-dark:focus {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 0.25rem rgba(255, 196, 0, 0.18);
+    }
+    
+    .form-label-dark {
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 600;
+      font-size: 0.85rem;
+      margin-bottom: 0.4rem;
+      text-align: left;
+      display: block;
+    }
+    
+    .btn-login {
+      background: var(--color-primary);
+      color: #191620;
+      font-weight: 800;
+      padding: 0.8rem;
+      border-radius: 999px;
+      width: 100%;
+      border: none;
+      margin-top: 1.5rem;
+      box-shadow: 0 10px 25px rgba(255, 196, 0, 0.25);
+      transition: all 0.25s ease;
+    }
+    
+    .btn-login:hover {
+      background: #ffd64d;
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(255, 196, 0, 0.35);
+    }
+    
+    .alert-glass {
+      background: rgba(220, 53, 69, 0.15);
+      border: 1px solid rgba(220, 53, 69, 0.3);
+      color: #ff8591;
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+      font-size: 0.85rem;
+      padding: 0.75rem 1rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .back-link {
+      display: inline-block;
+      margin-top: 1.8rem;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+    
+    .back-link:hover {
+      color: var(--color-primary);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+
+  <div class="login-container">
+    <div class="login-card animate-up">
+      <a href="/">
+        <img src="/assets/trawis-logo.png" alt="TraWis Logo" class="brand-logo-login">
+      </a>
+      
+      <h4 class="text-white font-heading fw-bold mb-4">Command Center</h4>
+      
+      <% if (error) { %>
+        <div class="alert alert-glass d-flex align-items-center justify-content-center gap-2" role="alert">
+          <i class="bi bi-exclamation-triangle-fill"></i>
+          <span><%= error %></span>
+        </div>
+      <% } %>
+
+      <form action="/admin/login" method="POST">
+        <div class="mb-3">
+          <label for="username" class="form-label-dark">Username</label>
+          <input 
+            type="text" 
+            class="form-control form-control-dark" 
+            id="username" 
+            name="username" 
+            placeholder="Enter your username" 
+            required 
+            autocomplete="username"
+          >
+        </div>
+        
+        <div class="mb-4">
+          <label for="password" class="form-label-dark">Password</label>
+          <input 
+            type="password" 
+            class="form-control form-control-dark" 
+            id="password" 
+            name="password" 
+            placeholder="Enter your password" 
+            required 
+            autocomplete="current-password"
+          >
+        </div>
+        
+        <button type="submit" class="btn btn-login">
+          Authenticate & Enter
+        </button>
+      </form>
+      
+      <a href="/" class="back-link">
+        <i class="bi bi-arrow-left me-1"></i> Back to main site
+      </a>
+    </div>
+  </div>
+
+</body>
+</html>
