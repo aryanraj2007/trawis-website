@@ -157,40 +157,79 @@ router.get('/posts/new', isAuthenticated, (req, res) => {
 
 // POST New Post Action
 router.post('/posts', isAuthenticated, upload.single('coverImage'), async (req, res) => {
-  const { title, content, status } = req.body;
+  const { title, content, status, publishedAtManual } = req.body;
   const authorId = req.session.userId;
   const coverImage = req.file ? `/uploads/${req.file.filename}` : null;
   const postStatus = status === 'published' ? 'published' : 'draft';
-  const publishedAt = postStatus === 'published' ? new Date() : null;
+
+  const publishedAt =
+    postStatus === 'published'
+      ? publishedAtManual
+        ? new Date(publishedAtManual)
+        : new Date()
+      : null;
 
   // Automatically generate excerpt from the content by stripping HTML tags
-  const cleanContent = content ? content.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim() : '';
-  const excerpt = cleanContent.length > 180 ? cleanContent.substring(0, 177) + '...' : cleanContent;
+  const cleanContent = content
+    ? content.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()
+    : '';
+
+  const excerpt =
+    cleanContent.length > 180
+      ? cleanContent.substring(0, 177) + '...'
+      : cleanContent;
 
   if (!title || !content) {
-    return res.status(400).render('404', { title: 'Validation Error', message: 'Title and content are required.' });
+    return res.status(400).render('404', {
+      title: 'Validation Error',
+      message: 'Title and content are required.'
+    });
   }
 
   // Generate unique slug
   let slug = slugify(title, { lower: true, strict: true });
-  
+
   try {
     // Check if slug exists, append random suffix if it does
     const slugCheck = await db.query('SELECT id FROM posts WHERE slug = $1', [slug]);
+
     if (slugCheck.rows.length > 0) {
       slug = `${slug}-${Math.round(Math.random() * 10000)}`;
     }
 
     const queryText = `
-      INSERT INTO posts (title, slug, excerpt, content, cover_image, status, author_id, published_at) 
+      INSERT INTO posts (
+        title,
+        slug,
+        excerpt,
+        content,
+        cover_image,
+        status,
+        author_id,
+        published_at
+      ) 
       VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
     `;
-    await db.query(queryText, [title, slug, excerpt, content, coverImage, postStatus, authorId, publishedAt]);
-    
+
+    await db.query(queryText, [
+      title,
+      slug,
+      excerpt,
+      content,
+      coverImage,
+      postStatus,
+      authorId,
+      publishedAt
+    ]);
+
     res.redirect('/admin/dashboard');
   } catch (error) {
     console.error('Error creating post:', error);
-    res.status(500).render('404', { title: 'Server Error', message: 'Failed to create post.' });
+
+    res.status(500).render('404', {
+      title: 'Server Error',
+      message: 'Failed to create post.'
+    });
   }
 });
 
@@ -217,7 +256,7 @@ router.get('/posts/:id/edit', isAuthenticated, async (req, res) => {
 
 // POST Edit Post Action
 router.post('/posts/:id/edit', isAuthenticated, upload.single('coverImage'), async (req, res) => {
-  const { title, content, status } = req.body;
+  const { title, content, status, publishedAtManual } = req.body;
   const postStatus = status === 'published' ? 'published' : 'draft';
   const postId = req.params.id;
 
@@ -240,11 +279,19 @@ router.post('/posts/:id/edit', isAuthenticated, upload.single('coverImage'), asy
     const coverImage = req.file ? `/uploads/${req.file.filename}` : existingPost.cover_image;
 
     // Calculate published_at date
+    // Calculate published_at date
     let publishedAt = existingPost.published_at;
-    if (postStatus === 'published' && existingPost.status !== 'published') {
-      publishedAt = new Date();
-    } else if (postStatus === 'draft') {
+
+    if (postStatus === 'draft') {
       publishedAt = null;
+    } else if (postStatus === 'published') {
+      if (publishedAtManual) {
+        publishedAt = new Date(publishedAtManual);
+      } else if (existingPost.published_at) {
+        publishedAt = existingPost.published_at;
+      } else {
+        publishedAt = new Date();
+      }
     }
 
     // Generate unique slug if title has changed
