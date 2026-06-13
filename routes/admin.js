@@ -1,16 +1,17 @@
 const express = require('express');
-const router = express.Router();
 const bcrypt = require('bcryptjs');
 const slugify = require('slugify');
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
 
+const app = express();
+
 const db = require('../config/db');
 const { isAuthenticated, isSuperAdmin } = require('../middleware/auth');
 
 // Global admin middleware: ensure non-login admin routes redirect to login/dashboard
-router.use((req, res, next) => {
+app.use((req, res, next) => {
   // allow access to login, logout and static resources
   if (req.path === '/login' || req.path === '/logout' || req.path.startsWith('/assets') || req.path.startsWith('/uploads')) {
     return next();
@@ -60,12 +61,12 @@ const upload = multer({
 // =========================================================================
 
 // GET Admin root -> redirects to dashboard
-router.get('/', (req, res) => {
+app.get('/', (req, res) => {
   res.redirect('/admin/dashboard');
 });
 
 // GET Login Page
-router.get('/login', (req, res) => {
+app.get('/login', (req, res) => {
   if (req.session.userId) {
     return res.redirect('/admin/dashboard');
   }
@@ -74,7 +75,7 @@ router.get('/login', (req, res) => {
 });
 
 // POST Login Action
-router.post('/login', async (req, res) => {
+app.post('/login', async (req, res) => {
   const { username, password } = req.body;
 
   if (!username || !password) {
@@ -112,7 +113,7 @@ router.post('/login', async (req, res) => {
 });
 
 // GET Logout
-router.get('/logout', (req, res) => {
+app.get('/logout', (req, res) => {
   req.session.destroy((err) => {
     if (err) {
       console.error('Logout error:', err);
@@ -126,7 +127,7 @@ router.get('/logout', (req, res) => {
 // =========================================================================
 
 // GET Dashboard Home
-router.get('/dashboard', isAuthenticated, async (req, res) => {
+app.get('/dashboard', isAuthenticated, async (req, res) => {
   try {
     const queryText = `
       SELECT p.*, u.username as author_name 
@@ -147,7 +148,7 @@ router.get('/dashboard', isAuthenticated, async (req, res) => {
 });
 
 // GET New Post Form
-router.get('/posts/new', isAuthenticated, (req, res) => {
+app.get('/posts/new', isAuthenticated, (req, res) => {
   res.render('admin/edit-post', { 
     title: 'Create Blog Post', 
     post: null,
@@ -156,7 +157,7 @@ router.get('/posts/new', isAuthenticated, (req, res) => {
 });
 
 // POST New Post Action
-router.post('/posts', isAuthenticated, upload.single('coverImage'), async (req, res) => {
+app.post('/posts', isAuthenticated, upload.single('coverImage'), async (req, res) => {
   const { title, content, status, publishedAtManual } = req.body;
   const authorId = req.session.userId;
   const coverImage = req.file ? `/uploads/${req.file.filename}` : null;
@@ -234,7 +235,7 @@ router.post('/posts', isAuthenticated, upload.single('coverImage'), async (req, 
 });
 
 // GET Edit Post Form
-router.get('/posts/:id/edit', isAuthenticated, async (req, res) => {
+app.get('/posts/:id/edit', isAuthenticated, async (req, res) => {
   try {
     const queryText = 'SELECT * FROM posts WHERE id = $1';
     const result = await db.query(queryText, [req.params.id]);
@@ -255,7 +256,7 @@ router.get('/posts/:id/edit', isAuthenticated, async (req, res) => {
 });
 
 // POST Edit Post Action
-router.post('/posts/:id/edit', isAuthenticated, upload.single('coverImage'), async (req, res) => {
+app.post('/posts/:id/edit', isAuthenticated, upload.single('coverImage'), async (req, res) => {
   const { title, content, status, publishedAtManual } = req.body;
   const postStatus = status === 'published' ? 'published' : 'draft';
   const postId = req.params.id;
@@ -316,7 +317,7 @@ router.post('/posts/:id/edit', isAuthenticated, upload.single('coverImage'), asy
 });
 
 // POST Delete Post Action
-router.post('/posts/:id/delete', isAuthenticated, async (req, res) => {
+app.post('/posts/:id/delete', isAuthenticated, async (req, res) => {
   try {
     const queryText = 'DELETE FROM posts WHERE id = $1';
     await db.query(queryText, [req.params.id]);
@@ -332,7 +333,7 @@ router.post('/posts/:id/delete', isAuthenticated, async (req, res) => {
 // =========================================================================
 
 // GET User Management Portal
-router.get('/users', isAuthenticated, isSuperAdmin, async (req, res) => {
+app.get('/users', isAuthenticated, isSuperAdmin, async (req, res) => {
   try {
     const queryText = 'SELECT id, username, role, created_at FROM users ORDER BY created_at DESC';
     const result = await db.query(queryText);
@@ -368,7 +369,7 @@ router.get('/users', isAuthenticated, isSuperAdmin, async (req, res) => {
 });
 
 // POST Create User Action
-router.post('/users', isAuthenticated, isSuperAdmin, async (req, res) => {
+app.post('/users', isAuthenticated, isSuperAdmin, async (req, res) => {
   const { username, password, role } = req.body;
 
   if (!username || !password || !role) {
@@ -397,7 +398,7 @@ router.post('/users', isAuthenticated, isSuperAdmin, async (req, res) => {
 });
 
 // POST Delete User Action
-router.post('/users/:id/delete', isAuthenticated, isSuperAdmin, async (req, res) => {
+app.post('/users/:id/delete', isAuthenticated, isSuperAdmin, async (req, res) => {
   const userIdToDelete = parseInt(req.params.id, 10);
   const currentLoggedInUserId = req.session.userId;
 
@@ -416,4 +417,4 @@ router.post('/users/:id/delete', isAuthenticated, isSuperAdmin, async (req, res)
   }
 });
 
-module.exports = router;
+module.exports = app;

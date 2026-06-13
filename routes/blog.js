@@ -1,9 +1,10 @@
 const express = require('express');
-const router = express.Router();
 const db = require('../config/db');
 
+const app = express();
+
 // Renders the public blog cards feed list
-router.get('/', async (req, res) => {
+app.get('/', async (req, res) => {
   try {
     const queryText = `
       SELECT p.*, u.username as author_name 
@@ -21,7 +22,7 @@ router.get('/', async (req, res) => {
 });
 
 // Renders a single blog post by its slug
-router.get('/:slug', async (req, res) => {
+app.get('/:slug', async (req, res) => {
   try {
     const queryText = `
       SELECT p.*, u.username as author_name 
@@ -42,4 +43,5 @@ router.get('/:slug', async (req, res) => {
   }
 });
 
-module.exports = router;
+module.exports = app;
+  

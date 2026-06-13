@@ -43,6 +43,12 @@ app.get('/product', (req, res) => {
   res.render('product', { title: 'Product' });
 });
 
+app.get('/solutions', (req, res) => {
+  res.render('solutions', {
+    title: 'Solutions | TraWis'
+  });
+});
+
 app.get('/about', (req, res) => {
   res.render('about', { title: 'About Us' });
 });
