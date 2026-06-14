@@ -8,49 +8,65 @@
   <%- include('partials/header') %>
 
   <main>
-<!-- HERO -->
-<section class="hero-section section-dark" id="home">
-  <div class="hero-bg-glow"></div>
+    <!-- HERO -->
+    <section class="hero-section section-dark" id="home">
+      <div class="hero-bg-glow"></div>
 
-  <div class="container hero-container">
-    <div class="row align-items-center hero-row gy-5">
-      <div class="col-lg-6">
+      <div class="container hero-container">
+        <div class="row align-items-center hero-row gy-5">
+          <div class="col-lg-6">
+            <h1 class="hero-title animate-up delay-1">
+              The <span>Intelligent Decision System</span> for Energy Trading
+            </h1>
 
-        <h1 class="hero-title animate-up delay-1">
-          The <span>Intelligence Layer</span> for Energy Trading
-        </h1>
+            <p class="hero-subtitle animate-up delay-2">
+              TraWis unifies market intelligence and enterprise operations into a single
+              AI-powered decision layer, helping energy traders act faster, manage risk
+              better, and capture more value from every opportunity.
+            </p>
 
-        <p class="hero-subtitle animate-up delay-2">
-          TraWis connects pricing, weather, geopolitical signals, ETRM, ERP,
-          logistics, and contract data into one decision engine for faster,
-          smarter trade actions.
-        </p>
+            <div class="hero-actions animate-up delay-3">
+              <a href="/demo" class="btn btn-brand btn-lg">Schedule a Demo</a>
+              <a href="/product" class="btn btn-ghost btn-lg">Explore Product</a>
+            </div>
+          </div>
 
-        <div class="hero-actions animate-up delay-3">
-          <a href="#demo" class="btn btn-brand btn-lg">Schedule Demo</a>
-          <a href="/product" class="btn btn-ghost btn-lg">Explore Product</a>
-        </div>
+<div class="col-lg-6">
+  <div class="landing-hero-visual animate-up delay-2">
+    <div class="landing-hero-image-glow"></div>
+
+    <div class="landing-hero-image-frame">
+      <img
+        src="/assets/o&g.jpg"
+        alt="Energy trading operations supported by TraWis intelligence"
+        class="landing-hero-image"
+      >
+
+      <div class="landing-hero-image-overlay"></div>
+
+      <div class="landing-hero-image-label">
+        <span class="landing-status-dot"></span>
+        Energy Trading Intelligence
       </div>
 
-      <div class="col-lg-6">
-        <div class="hero-product-frame animate-up delay-2" style="margin-bottom: 1rem;">
-          <div class="browser-card hero-demo-card">
-            <div class="browser-dots">
-              <span></span><span></span><span></span>
-            </div>
+      <div class="landing-hero-insight">
+        <div class="landing-hero-insight-icon">
+          <i class="bi bi-graph-up-arrow"></i>
+        </div>
 
-            <img
-              src="/assets/dashboard.png"
-              alt="TraWis dashboard preview"
-              class="img-fluid product-demo-img"
-            >
-          </div>
+        <div>
+          <span>Real-Time Decision Intelligence</span>
+          <strong>Market signals transformed into actionable recommendations</strong>
         </div>
       </div>
     </div>
   </div>
-</section>
+</div>
 
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- INTRO / VALUE STATEMENT -->
     <section class="section section-soft">
@@ -65,7 +81,7 @@
           <div class="col-lg-7">
             <div class="section-kicker">Unified intelligence</div>
             <h2 class="section-title">
-              One decision layer above your existing ETRM, CTRM, and ERP systems.
+              The Smart Decision Layer Above Your Existing ETRM/CTRM, And ERP Systems.
             </h2>
             <p class="section-text">
               TraWis does not replace existing trading and enterprise systems. It sits above them,
@@ -77,100 +93,152 @@
       </div>
     </section>
 
-
-<!-- PROBLEMS ADDRESSED -->
-<section class="section problem-section" id="problem">
-  <!-- Animated background cutouts -->
-  <div class="problem-cutout problem-cutout-1" aria-hidden="true">
-    <img src="/assets/dashboard.png" alt="">
-  </div>
-
-  <div class="problem-cutout problem-cutout-2" aria-hidden="true">
-    <img src="/assets/stock-graph.jpg" alt="">
-  </div>
-
-  <div class="problem-cutout problem-cutout-3" aria-hidden="true">
-    <img src="/assets/spreadsheet.jpg" alt="">
-  </div>
-
-  <div class="container problem-container">
-    <div class="section-heading text-center">
-      <div class="section-kicker">Problems addressed</div>
-
-      <h2 class="section-title">
-        Energy trading teams are drowning in signals, systems, and spreadsheets.
-      </h2>
-
-      <p class="section-text mx-auto">
-        TraWis is designed for trading desk personas that need faster pricing intelligence,
-        risk visibility, and explainable recommendations.
-      </p>
-    </div>
-
-    <div class="row g-4">
-      <div class="col-md-6 col-lg-3">
-        <article class="feature-card problem-card">
-          <div class="problem-number">1</div>
-          <h3>Fragmented data</h3>
-          <p>
-            ETRM, ERP, logistics, contracts, market feeds, and weather data remain disconnected.
-          </p>
-        </article>
+    <!-- PROBLEM -->
+    <section class="section problem-section" id="problem">
+      <div class="problem-cutout problem-cutout-1" aria-hidden="true">
+        <img src="/assets/dashboard.png" alt="">
       </div>
 
-      <div class="col-md-6 col-lg-3">
-        <article class="feature-card problem-card">
-          <div class="problem-number">2</div>
-          <h3>Delayed decisions</h3>
-          <p>
-            Traders and risk managers lose speed when analysis happens across multiple tools.
-          </p>
-        </article>
+      <div class="problem-cutout problem-cutout-2" aria-hidden="true">
+        <img src="/assets/stock-graph.jpg" alt="">
       </div>
 
-      <div class="col-md-6 col-lg-3">
-        <article class="feature-card problem-card">
-          <div class="problem-number">3</div>
-          <h3>Margin exposure</h3>
-          <p>
-            Late visibility into P&amp;L and risk can create preventable exposure and inefficiency.
-          </p>
-        </article>
+      <div class="problem-cutout problem-cutout-3" aria-hidden="true">
+        <img src="/assets/spreadsheet.jpg" alt="">
       </div>
 
-      <div class="col-md-6 col-lg-3">
-        <article class="feature-card problem-card">
-          <div class="problem-number">4</div>
-          <h3>Manual workflows</h3>
-          <p>
-            Critical trading strategies often move through spreadsheets before execution systems.
+      <div class="container problem-container">
+        <div class="section-heading text-center">
+          <div class="section-kicker">The challenge</div>
+
+          <h2 class="section-title">
+            The Energy Market Runs in Trillions. Decisions Still Run in Silos.
+          </h2>
+
+          <p class="section-text mx-auto">
+            Critical trading intelligence remains fragmented across ETRM platforms,
+            ERP systems, spreadsheets, and workflows, making it harder to act with
+            speed, confidence, and visibility.
           </p>
-        </article>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3">
+            <article class="feature-card problem-card">
+              <div class="problem-number">1</div>
+              <h3>Fragmented intelligence</h3>
+              <p>
+                Market, operational, logistics, contract, and risk data remain spread
+                across disconnected systems.
+              </p>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <article class="feature-card problem-card">
+              <div class="problem-number">2</div>
+              <h3>Delayed decisions</h3>
+              <p>
+                Teams lose valuable time gathering, validating, and reconciling data
+                before they can act.
+              </p>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <article class="feature-card problem-card">
+              <div class="problem-number">3</div>
+              <h3>Limited visibility</h3>
+              <p>
+                Exposure, position, margin, and operational constraints are often viewed
+                through separate reports and workflows.
+              </p>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <article class="feature-card problem-card">
+              <div class="problem-number">4</div>
+              <h3>Manual execution</h3>
+              <p>
+                Spreadsheet-heavy workflows slow down approvals, increase inconsistency,
+                and make decision trails harder to audit.
+              </p>
+            </article>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
 
-    <!-- PRODUCT DEMO -->
+    <!-- SOLUTION -->
+    <section class="section section-soft">
+      <div class="container">
+        <div class="section-heading text-center">
+          <div class="section-kicker">Meet TraWis</div>
+
+          <h2 class="section-title">
+            One Intelligent Decision Layer Above Your Existing ETRM, CTRM, and ERP Systems
+          </h2>
+
+          <p class="section-text mx-auto">
+            Predictive signals, recommended actions, confidence scores, risk alerts,
+            and audit-ready decision trails, all unified in a single AI-powered
+            intelligence workbench.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <article class="feature-card">
+              <div class="feature-icon">1</div>
+              <h3>Predict</h3>
+              <p>Forecast pricing, spreads, and market movements.</p>
+            </article>
+          </div>
+
+          <div class="col-lg-4">
+            <article class="feature-card">
+              <div class="feature-icon">2</div>
+              <h3>Recommend</h3>
+              <p>Generate buy, sell, hedge, and risk actions.</p>
+            </article>
+          </div>
+
+          <div class="col-lg-4">
+            <article class="feature-card">
+              <div class="feature-icon">3</div>
+              <h3>Execute</h3>
+              <p>Initiate governed workflows back into ERP and CTRM systems.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- PRODUCT PREVIEW -->
     <section class="section section-dark product-section" id="product">
       <div class="container">
         <div class="row align-items-center gy-5">
           <div class="col-lg-5">
-            <div class="section-kicker">Product preview</div>
+            <div class="section-kicker">Product Preview</div>
+
             <h2 class="section-title text-white">
-              Designed for traders, pricers, schedulers, and risk managers.
+              Built for the Modern Trading Desk
             </h2>
+
             <p class="section-text text-white-70">
-              The product experience should feel like an intelligence workbench:
-              predictive signals, recommended actions, confidence scores, risk alerts,
-              and audit-ready decision trails.
+              Predictive signals, recommended actions, confidence scores, risk alerts,
+              and audit-ready decision trails unified in a single AI-powered
+              intelligence workbench.
             </p>
 
             <ul class="check-list">
-              <li>Predictive pricing and spread forecasting</li>
-              <li>Buy, sell, hedge, and risk recommendations</li>
-              <li>Explainable and governed decision trails</li>
+              <li>Predictive pricing</li>
+              <li>Buy, sell, and hedge recommendations</li>
+              <li>Explainable AI reasoning</li>
+              <li>Audit-ready decision trails</li>
               <li>Real-time aggregation of trading-critical data</li>
             </ul>
           </div>
@@ -181,13 +249,18 @@
                 <div class="browser-dots">
                   <span></span><span></span><span></span>
                 </div>
-                <img src="/assets/dashboard.png" alt="TraWis product dashboard" class="img-fluid product-demo-img">
+
+                <img
+                  src="/assets/dashboard.png"
+                  alt="TraWis modern trading desk dashboard"
+                  class="img-fluid product-demo-img"
+                >
               </div>
 
               <div class="demo-stack">
-                <img src="/assets/pricing.png" alt="Pricing engine screen">
-                <img src="/assets/ai-platform.png" alt="Core platform screen">
-                <img src="/assets/recs.png" alt="Recommendation layer screen">
+                <img src="/assets/pricing.png" alt="Predictive pricing interface">
+                <img src="/assets/ai-platform.png" alt="Unified intelligence platform">
+                <img src="/assets/recs.png" alt="AI recommendations interface">
               </div>
             </div>
           </div>
@@ -196,25 +269,29 @@
     </section>
 
 
-    <!-- 3 LAYER MODEL -->
+    <!-- THREE-LAYER MODEL -->
     <section class="section" id="model">
       <div class="container">
         <div class="section-heading text-center">
-          <div class="section-kicker">3-layer intelligence model</div>
-          <h2 class="section-title">From prediction to platform to action.</h2>
+          <div class="section-kicker">Powered by the 3-Layer Intelligence Model</div>
+
+          <h2 class="section-title">
+            From Prediction to Trusted Data to Governed Action
+          </h2>
         </div>
 
         <div class="row g-4">
           <div class="col-lg-4">
             <article class="layer-card">
               <div class="layer-img">
-                <img src="/assets/pricing.png" alt="Commodity price prediction engine">
+                <img src="/assets/pricing.png" alt="Pricing Insight Engine">
               </div>
+
               <span>Layer 1</span>
-              <h3>Commodity Price Prediction Engine</h3>
+              <h3>Pricing Insight Engine</h3>
               <p>
-                Uses historical market data, weather signals, and geopolitical sentiment
-                to forecast pricing and confidence.
+                Forecasts commodity prices using market, weather, geopolitical,
+                and operational signals.
               </p>
             </article>
           </div>
@@ -222,13 +299,14 @@
           <div class="col-lg-4">
             <article class="layer-card">
               <div class="layer-img">
-                <img src="/assets/ai-platform.png" alt="TraWis core platform">
+                <img src="/assets/ai-platform.png" alt="Data Core Platform">
               </div>
+
               <span>Layer 2</span>
-              <h3>TraWis Core Platform</h3>
+              <h3>Data Core Platform</h3>
               <p>
-                Normalizes internal operator data from systems such as ETRM, ERP,
-                logistics, contracts, and trade records.
+                Unifies internal and external data into a single trusted source
+                for decision-making.
               </p>
             </article>
           </div>
@@ -236,13 +314,14 @@
           <div class="col-lg-4">
             <article class="layer-card">
               <div class="layer-img">
-                <img src="/assets/recs.png" alt="Agentic recommendation layer">
+                <img src="/assets/recs.png" alt="Agentic AI Recommendation Layer">
               </div>
+
               <span>Layer 3</span>
-              <h3>Agentic Recommendation Layer</h3>
+              <h3>Agentic AI Recommendation Layer</h3>
               <p>
-                Generates role-based recommendations for trading, pricing, scheduling,
-                hedging, and risk actions.
+                Generates explainable recommendations and governed workflows
+                tailored to trading operations.
               </p>
             </article>
           </div>
@@ -251,101 +330,307 @@
     </section>
 
 
-    <!-- IMPACT -->
+    <!-- SOLUTIONS -->
+    <!-- <section class="section section-soft">
+      <div class="container">
+        <div class="section-heading text-center">
+          <div class="section-kicker">Solutions</div>
+
+          <h2 class="section-title">
+            Purpose-Built for Every Trading Function
+          </h2>
+
+          <p class="section-text mx-auto">
+            One platform, multiple decision workspaces for traders, risk managers,
+            schedulers, and pricers.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3">
+            <article class="feature-card">
+              <div class="feature-icon">1</div>
+              <h3>Trader Workspace</h3>
+              <p>Identify opportunities, monitor positions, and act on strategy-aware recommendations.</p>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <article class="feature-card">
+              <div class="feature-icon">2</div>
+              <h3>Risk Manager Workspace</h3>
+              <p>Continuously monitor exposure and receive proactive hedge and policy recommendations.</p>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <article class="feature-card">
+              <div class="feature-icon">3</div>
+              <h3>Scheduler Workspace</h3>
+              <p>Connect commercial decisions with physical logistics, inventory, and delivery execution.</p>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <article class="feature-card">
+              <div class="feature-icon">4</div>
+              <h3>Pricer Workspace</h3>
+              <p>Simulate localized pricing scenarios and optimize deal-level margins.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="hero-actions justify-content-center mt-4">
+          <a href="/solutions" class="btn btn-brand btn-lg">Explore Solutions</a>
+        </div>
+      </div>
+    </section> -->
+
+
+    <!-- DIFFERENTIATORS -->
+    <section class="section section-soft">
+      <div class="container">
+        <div class="section-heading text-center">
+          <div class="section-kicker">The TraWis Differentiators</div>
+
+          <h2 class="section-title">
+            Built to Work With Your Existing Landscape
+          </h2>
+
+          <p class="section-text mx-auto">
+            TraWis sits above your ETRM, CTRM, ERP, and operational systems,
+            unifying data without requiring rip-and-replace transformation.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg">
+            <article class="feature-card">
+              <div class="feature-icon">1</div>
+              <h3>High-Accuracy Prediction</h3>
+              <p>Commodity forecasting informed by market, weather, geopolitical, and operational signals.</p>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-lg">
+            <article class="feature-card">
+              <div class="feature-icon">2</div>
+              <h3>Holistic Trade Context</h3>
+              <p>Coverage across the internal and external parameters that shape trade outcomes.</p>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-lg">
+            <article class="feature-card">
+              <div class="feature-icon">3</div>
+              <h3>Pre-Built Integration</h3>
+              <p>Synchronous API-based connectivity with enterprise and operational applications.</p>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-lg">
+            <article class="feature-card">
+              <div class="feature-icon">4</div>
+              <h3>Scalable Data Foundation</h3>
+              <p>Structured, labeled data designed for high-volume machine learning and decision models.</p>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-lg">
+            <article class="feature-card">
+              <div class="feature-icon">5</div>
+              <h3>Plug-and-Play Adoption</h3>
+              <p>Start with a focused use case and scale without disrupting existing operations.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- WHY NOW -->
+    <section class="section section-dark">
+      <div class="container">
+        <div class="section-heading text-center">
+          <div class="section-kicker">Why Now?</div>
+
+          <h2 class="section-title text-white">
+            The Cost of Waiting Is Growing
+          </h2>
+
+          <p class="section-text text-white-70 mx-auto">
+            Market volatility, geopolitical uncertainty, weather disruptions, and
+            operational constraints are reshaping commodity markets faster than
+            legacy systems can respond.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <article class="product-agent-card">
+              <div class="product-agent-content">
+                <span>$69B</span>
+                <h3>Global Commodity Trading Profit Pool</h3>
+                <p>
+                  AI-driven decision intelligence is creating new opportunities to
+                  capture value across physical and derivative trading operations.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-lg-4">
+            <article class="product-agent-card">
+              <div class="product-agent-content">
+                <span>Up to $28B</span>
+                <h3>AI Optimization Opportunity</h3>
+                <p>
+                  Predictive intelligence, automated recommendations, and faster
+                  execution can unlock significant profit improvement.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-lg-4">
+            <article class="product-agent-card">
+              <div class="product-agent-content">
+                <span>Every Hour Matters</span>
+                <h3>Decisions Delayed Are Margins Lost</h3>
+                <p>
+                  Weather, geopolitical shifts, logistics disruptions, and volatility
+                  can change trading outcomes in minutes, not days.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- BUSINESS IMPACT -->
     <section class="section section-soft" id="impact">
       <div class="container">
         <div class="section-heading text-center">
-          <div class="section-kicker">Business impact</div>
+          <div class="section-kicker">Business Impact</div>
+
           <h2 class="section-title">
-            Directly improving the <span class="text-brand">bottom line</span>.
+            Measured in Margins, Speed, and Risk Reduction
           </h2>
         </div>
 
         <div class="impact-grid">
           <div class="impact-card">
-            <strong data-count="50">0</strong>
+            <strong>40–50</strong>
             <span>%</span>
-            <p>Faster decision cycles</p>
+            <p>Faster decisions</p>
           </div>
 
           <div class="impact-card">
-            <strong data-count="3">0</strong>
+            <strong>2–4</strong>
             <span>%</span>
-            <p>Margin increase through early signal detection</p>
+            <p>Margin improvement</p>
           </div>
 
           <div class="impact-card">
-            <strong data-count="40">0</strong>
+            <strong>20–25</strong>
             <span>%</span>
-            <p>Reduction in exposure risk</p>
+            <p>Risk reduction</p>
           </div>
 
           <div class="impact-card">
-            <strong data-count="25">0</strong>
+            <strong>Up to 25</strong>
             <span>%</span>
-            <p>Fewer manual tasks through automation</p>
+            <p>Less manual effort</p>
           </div>
         </div>
       </div>
     </section>
 
 
-    <!-- PRICING / MODULAR -->
-    <section class="section" id="pricing">
+    <!-- LEADERSHIP SNAPSHOT -->
+    <section class="section">
       <div class="container">
-        <div class="row align-items-center gy-4">
-          <div class="col-lg-6">
-            <div class="section-kicker">Modular adoption</div>
-            <h2 class="section-title">Start small. Scale across the trade desk.</h2>
-            <p class="section-text">
-              TraWis can be adopted modularly, allowing operators to begin with a less critical
-              function such as scheduler or pricer, prove value, and expand to other roles.
-            </p>
+        <div class="section-heading text-center">
+          <div class="section-kicker">Trusted Expertise</div>
+
+          <h2 class="section-title">
+            Built by Energy Operators, Enterprise Architects, and AI Specialists
+          </h2>
+
+          <p class="section-text mx-auto">
+            TraWis was created by leaders who have spent decades solving complex
+            challenges across energy trading, enterprise technology, and applied
+            artificial intelligence.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg">
+            <article class="feature-card">
+              <h3>Prabhakar Prasad</h3>
+              <p>Enterprise transformation leader with 30+ years of SAP and global operations experience.</p>
+            </article>
           </div>
 
-          <div class="col-lg-6">
-            <div class="pricing-card">
-              <div class="pricing-row">
-                <span>Core Platform</span>
-                <strong>By installation</strong>
-              </div>
-              <div class="pricing-row">
-                <span>Pricing Prediction Engine</span>
-                <strong>By commodity</strong>
-              </div>
-              <div class="pricing-row">
-                <span>API Connectors</span>
-                <strong>By connected application</strong>
-              </div>
-              <div class="pricing-row">
-                <span>Trade / Risk / Pricing / Scheduler Agents</span>
-                <strong>By users</strong>
-              </div>
-              <div class="pricing-row">
-                <span>Deployment Services</span>
-                <strong>Set up</strong>
-              </div>
-            </div>
+          <div class="col-md-6 col-lg">
+            <article class="feature-card">
+              <h3>Rajesh Raj</h3>
+              <p>Commercial growth executive with leadership experience across SAP, IBM, and AWS.</p>
+            </article>
           </div>
+
+          <div class="col-md-6 col-lg">
+            <article class="feature-card">
+              <h3>Kiran V</h3>
+              <p>Technology leader behind large-scale refinery and commodity trading transformations.</p>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-lg">
+            <article class="feature-card">
+              <h3>Vinod N</h3>
+              <p>Enterprise architect specializing in trading and operational systems.</p>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-lg">
+            <article class="feature-card">
+              <h3>Kiran A</h3>
+              <p>AI and machine learning specialist focused on next-generation decision intelligence.</p>
+            </article>
+          </div>
+        </div>
+
+        <p class="section-text text-center mx-auto mt-4">
+          We built TraWis because the future of energy trading requires an intelligent
+          decision layer that connects market intelligence, operational realities,
+          and enterprise execution.
+        </p>
+
+        <div class="hero-actions justify-content-center">
+          <a href="/leadership" class="btn btn-brand">Meet the Leadership Team</a>
         </div>
       </div>
     </section>
 
 
-    <!-- DEMO CTA -->
+    <!-- FINAL CTA -->
     <section class="section demo-cta" id="demo">
       <div class="container">
         <div class="cta-card">
           <div>
-            <div class="section-kicker">Ready for a walkthrough?</div>
-            <h2>See how TraWis can simplify trade intelligence.</h2>
+            <div class="section-kicker">See TraWis in Action</div>
+
+            <h2>See How TraWis Turns Signals Into Decisions</h2>
+
             <p>
-              Schedule a product demo to explore predictive pricing, trade recommendations,
-              risk alerts, and workflow-based approvals.
-            </p><br>
-            <a href="/demo" class="btn btn-brand btn-lg">
-            Schedule Demo
-            </a>
+              Discover how energy trading teams can unify intelligence, reduce risk,
+              and act faster with TraWis.
+            </p>
+            <br>
+            <a href="/demo" class="btn btn-brand btn-lg">Schedule a Demo</a>
           </div>
         </div>
       </div>

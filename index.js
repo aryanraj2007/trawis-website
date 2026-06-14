@@ -39,11 +39,11 @@ app.get('/', (req, res) => {
   res.render('index', { title: null });
 });
 
-app.get('/product', (req, res) => {
+app.get('/product/platform', (req, res) => {
   res.render('product', { title: 'Product' });
 });
 
-app.get('/solutions', (req, res) => {
+app.get('/product/solutions', (req, res) => {
   res.render('solutions', {
     title: 'Solutions | TraWis'
   });
