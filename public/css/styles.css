@@ -621,7 +621,7 @@ p {
   margin-bottom: 1.3rem;
   border-radius: 50%;
   background: rgba(255, 196, 0, 0.16);
-  color: var(--color-primary-dark);
+  color: var(--color-primary);
   font-family: var(--font-heading);
   font-weight: 900;
 }
@@ -2448,4 +2448,328 @@ p {
   .landing-hero-insight strong {
     font-size: 0.85rem;
   }
+}
+
+.demo-gallery {
+  width: 100%;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.demo-card-large {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.demo-card-large .product-demo-img {
+  width: 100%;
+  display: block;
+}
+
+.demo-stack {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.demo-stack-item {
+  min-width: 0;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: var(--shadow-sm);
+}
+
+.demo-stack-item img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  padding: 0.35rem;
+}
+
+@media (max-width: 767px) {
+  .demo-gallery {
+    max-width: 100%;
+  }
+
+  .demo-stack {
+    grid-template-columns: 1fr;
+  }
+
+  .demo-stack-item {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* ================================
+   TraWis Differentiators
+================================ */
+
+.differentiators-section {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 8% 20%,
+      rgba(255, 196, 0, 0.08),
+      transparent 28%
+    ),
+    var(--color-bg-soft);
+}
+
+.differentiators-heading {
+  max-width: 920px;
+  margin-right: auto;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  margin-left: auto;
+}
+
+.differentiators-heading .section-title {
+  max-width: 850px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.differentiators-heading .section-text {
+  max-width: 800px;
+}
+
+.differentiators-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1.1rem;
+  width: 100%;
+}
+
+.differentiator-card {
+  position: relative;
+  min-height: 370px;
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid rgba(43, 35, 49, 0.08);
+  border-radius: 28px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow:
+    0 16px 34px rgba(43, 35, 49, 0.1),
+    0 4px 10px rgba(43, 35, 49, 0.05);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.differentiator-card:hover {
+  transform: translateY(-7px);
+  box-shadow:
+    0 24px 46px rgba(43, 35, 49, 0.16),
+    0 8px 16px rgba(43, 35, 49, 0.08);
+}
+
+.differentiator-card-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.52) 0%,
+      rgba(255, 255, 255, 0.66) 48%,
+      rgba(255, 255, 255, 0.82) 100%
+    );
+  backdrop-filter: saturate(0.8);
+}
+
+.differentiator-card-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  min-height: 370px;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 2rem 1.4rem 1.6rem;
+}
+
+.differentiator-number {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 2rem;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255, 196, 0, 0.14);
+  color: var(--color-primary-dark);
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 900;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 196, 0, 0.18),
+    0 6px 16px rgba(43, 35, 49, 0.07);
+}
+
+.differentiator-card h3 {
+  margin-bottom: 0.9rem;
+  color: var(--color-bg-dark);
+  font-family: var(--font-heading);
+  font-size: clamp(1.05rem, 1.35vw, 1.3rem);
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+}
+
+.differentiator-card p {
+  margin-bottom: 0;
+  color: rgba(43, 35, 49, 0.72);
+  font-size: 0.94rem;
+  line-height: 1.65;
+}
+
+@media (max-width: 1199px) {
+  .differentiators-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .differentiators-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .differentiator-card,
+  .differentiator-card-content {
+    min-height: 340px;
+  }
+}
+
+@media (max-width: 575px) {
+  .differentiators-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .differentiator-card,
+  .differentiator-card-content {
+    min-height: 320px;
+  }
+
+  .differentiator-card-content {
+    padding: 1.6rem;
+  }
+}
+
+
+.differentiator-card {
+  position: relative;
+  min-height: 370px;
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid rgba(43, 35, 49, 0.1);
+  border-radius: 28px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* Makes the source images richer */
+  filter: saturate(1.18) contrast(1.06);
+
+  box-shadow:
+    0 16px 34px rgba(43, 35, 49, 0.12),
+    0 4px 10px rgba(43, 35, 49, 0.06);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    filter 0.3s ease;
+}
+
+.differentiator-card:hover {
+  transform: translateY(-7px);
+  filter: saturate(1.3) contrast(1.1);
+
+  box-shadow:
+    0 24px 46px rgba(43, 35, 49, 0.18),
+    0 8px 16px rgba(43, 35, 49, 0.08);
+}
+
+.differentiator-card-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(20, 16, 25, 0.08) 0%,
+      rgba(20, 16, 25, 0.2) 42%,
+      rgba(20, 16, 25, 0.78) 100%
+    );
+
+  pointer-events: none;
+}
+
+.differentiator-card-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  min-height: 370px;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2rem 1.4rem 1.6rem;
+}
+
+.differentiator-number {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  margin-bottom: auto;
+  place-items: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+
+  background: rgba(255, 196, 0, 0.88);
+  color: var(--color-bg-dark);
+
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 900;
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.18),
+    0 0 0 6px rgba(255, 196, 0, 0.12);
+}
+
+.differentiator-card h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: clamp(1.05rem, 1.35vw, 1.3rem);
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+}
+
+.differentiator-card p {
+  margin-bottom: 0;
+
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.94rem;
+  line-height: 1.6;
+
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
 }
