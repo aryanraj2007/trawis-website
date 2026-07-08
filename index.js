@@ -74,7 +74,8 @@ app.get('/pricing', (req, res) => {
 });
 
 app.get('/demo', (req, res) => {
-  res.render('coming_soon', { title: 'Schedule Demo' });
+  // res.render('contact', { title: 'Schedule Demo' });
+  res.redirect('/contact');
 });
 
 
